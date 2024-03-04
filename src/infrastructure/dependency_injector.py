@@ -1,0 +1,9 @@
+from domain.entities.stock_operation import StockOperation
+from application.services.tax_calculation_service import TaxCalculationService
+from application.services.portfolio_service import PortfolioService
+from application.use_case.calculate_tax_use_case import CalculateTaxUseCase
+
+tax_calculation_service = TaxCalculationService()
+portfolio_service = PortfolioService(tax_calculation_service)
+
+calculate_tax_use_case = CalculateTaxUseCase(tax_calculation_service, portfolio_service)
